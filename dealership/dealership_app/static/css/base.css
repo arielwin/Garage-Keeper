@@ -102,8 +102,9 @@ nav li {
 .header-logo-container {
     margin: auto;
     padding: 10px 20px 0;
-    max-width: 500px;
+    max-width: 62px;
 }
+
 
 .page-header {
     display: flex;
@@ -203,7 +204,7 @@ nav li {
     }
 
     .header-logo-container {
-        width: 213px;
+        width: 75px;
     }
 
     .page-header h1 {
@@ -211,7 +212,7 @@ nav li {
     }
 
     .page-header img {
-        height: 50px;
+        max-height: 50px;
         margin-left: 20px;
     }
 
