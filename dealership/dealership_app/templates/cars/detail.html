@@ -1,24 +1,60 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/cars/car-detail.css' %}" />
-{% endblock %} 
+{% endblock %}
 {% block content %}
 <section class="cat-container">
-
   <div class="car-details">
     <div class="car-img">
-        <img src="{{ car.image.url }}" alt="A skater boy cat" />
-      </div>
+      <img src="{{ car.image.url }}" alt="A skater boy cat" />
+    </div>
     <h1>{{ car.year }} {{ car.make}} {{car.model}} </h1>
-      <h2>A {{ cat.age }} year old {{ cat.breed }}</h2>
-      <h2>A {{ cat.breed }} kitten.</h2>
+    <h2>A {{ cat.age }} year old {{ cat.breed }}</h2>
+    <h2>A {{ cat.breed }} kitten.</h2>
     <p>{{ cat.description }}</p>
 
     <div class="car-actions">
-        <a href="{% url 'car-update' car.id %}" class="btn warn">Edit</a>
-        <a href="{% url 'car-delete' car.id %}" class="btn danger">Delete</a>
-      </div>
+      <a href="{% url 'car-update' car.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'car-delete' car.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
+
+<div class="feedings-toy-container">
+  <section class="feedings">
+    <div class="subsection-title">
+      <h2>Maintenance History</h2>
+      <img src="{% static 'images/wrench.jpg' %}" alt="A picture of a wrench." />
+    </div>
+    <h3>Add Service</h3>
+    <form action="{% url 'add-service' car.id %}" method="post" class="subsection-content" autocomplete="off">
+      {% csrf_token %}
+      {{ service_form.as_p }}
+      <button type="submit" class="btn submit">Add Service</button>
+    </form>
+    {% if car.service_set.all.count %}
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Service</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for serv in car.service_set.all %}
+        <tr>
+          <td>{{serv.date}}</td>
+          <td>{{serv.get_sType_display}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="subsection-content">
+      <p>⚠️ {{car.make}} {{car.model}} has not been serviced!</p>
+    </div>
+    {% endif %}
+  </section>
+</div>
 {% endblock %}

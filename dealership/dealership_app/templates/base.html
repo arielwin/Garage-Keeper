@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="image/png" href="" />
   <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-  <link rel="shortcut icon" type ='image/png' href ="{%static 'images/car-svg.svg'%}"/>
+  <link rel="shortcut icon" type='image/png' href="{%static 'images/car-svg.svg'%}" />
   <title>Gary's Garage</title>
   {% block head %}
   {% endblock %}
@@ -24,9 +24,24 @@
     </div>
     <nav>
       <ul>
+        {% if user.is_authenticated %}
         <li><a href="{% url 'car-index' %}">All Cars</a></li>
+        <li><a href="{% url 'mod-index' %}">All Mods</a></li>
         <li><a href="{% url 'car-create' %}">Add a Car</a></li>
+        <li><a href="{% url 'mod-create' %}">Add a Mod</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
+        <li>
+          <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+          </form>
+        </li>
+        {% else %}
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'home' %}">Login</a></li>
+        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        {% endif %}
+
       </ul>
     </nav>
   </header>
