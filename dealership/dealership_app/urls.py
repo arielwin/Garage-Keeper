@@ -15,6 +15,8 @@ urlpatterns = [
     path('mods/', views.ModList.as_view(), name='mod-index'),
     path('mods/<int:pk>/update/', views.ModUpdate.as_view(), name='mod-update'),
     path('mods/<int:pk>/delete/', views.ModDelete.as_view(), name='mod-delete'),
+    path('cars/<int:car_id>/associate-mod/<int:mod_id>/', views.associate_mod, name='associate-mod'),
+    path('cars/<int:car_id>/remove-mod/<int:mod_id>/', views.remove_mod, name='remove-mod'),
     path('accounts/signup/', views.signup, name='signup'),
 
 ]

@@ -3,6 +3,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Car, Mod
 from .forms import ServiceForm
 from django.contrib.auth.views import LoginView
@@ -10,21 +12,26 @@ from django.contrib.auth.views import LoginView
 class Home(LoginView):
     template_name = 'home.html'
 
-
 def about(request):
     return render(request, 'about.html')
 
+@login_required
 def car_index(request):
-    cars = Car.objects.all()
+    cars = Car.objects.filter(user=request.user)
     return render(request, 'cars/index.html', {'cars':cars})
 
+@login_required
 def car_detail(request, car_id):
     car = Car.objects.get(id=car_id)
+    mods_car_doesnt_have = Mod.objects.exclude(id__in = car.mods.all().values_list('id'))
     service_form = ServiceForm()
     return render(request, 'cars/detail.html', {
-        'car':car, 'service_form': service_form
+        'car':car, 
+        'service_form': service_form, 
+        'mods': mods_car_doesnt_have
     })
 
+@login_required
 def add_service(request, car_id):
     form = ServiceForm(request.POST)
     if form.is_valid():
@@ -33,6 +40,18 @@ def add_service(request, car_id):
         new_service.save()
     return redirect('car-detail', car_id=car_id)
 
+@login_required
+def associate_mod(request, car_id, mod_id):
+    Car.objects.get(id=car_id).mods.add(mod_id)
+    return redirect('car-detail', car_id=car_id)
+
+@login_required
+def remove_mod(request, car_id, mod_id):
+    car = Car.objects.get(id=car_id)
+    car.mods.remove(mod_id)
+    return redirect('car-detail', car_id=car.id)
+
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -40,13 +59,14 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('cat-index')
+            return redirect('car-index')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
-class CarCreate(CreateView):
+
+class CarCreate(LoginRequiredMixin, CreateView):
     model = Car
     fields = '__all__'
     
@@ -54,29 +74,29 @@ class CarCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class CarUpdate(UpdateView):
+class CarUpdate(LoginRequiredMixin, UpdateView):
     model = Car
     fields = '__all__'
 
-class CarDelete(DeleteView):
+class CarDelete(LoginRequiredMixin, DeleteView):
     model = Car
     success_url = '/cars/'
 
-class ModCreate(CreateView):
+class ModCreate(LoginRequiredMixin, CreateView):
     model = Mod
     fields = '__all__'
 
-class ModList(ListView):
+class ModList(LoginRequiredMixin, ListView):
     model = Mod
 
-class ModDetail(DetailView):
+class ModDetail(LoginRequiredMixin, DetailView):
     model = Mod
 
-class ModUpdate(UpdateView):
+class ModUpdate(LoginRequiredMixin, UpdateView):
     model = Mod
     fields = ['name','description']
 
-class ModDelete(DeleteView):
+class ModDelete(LoginRequiredMixin, DeleteView):
     model = Mod
     success_url = '/mods/'
 

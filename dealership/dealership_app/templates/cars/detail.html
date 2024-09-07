@@ -56,5 +56,52 @@
     </div>
     {% endif %}
   </section>
+
+  <section class="toys">
+    <div class="subsection-title">
+      <h2>Mods</h2>
+    </div>
+
+    <h3>{{ car.make }} {{ car.model }}'s Mods</h3>
+    <div class="subsection-content">
+      {% if car.mods.count %} 
+        {% for mod in car.mods.all %}
+          <div class="toy-container">
+            <div class="color-block"></div>
+            <a href="{% url 'mod-detail' mod.id %}">
+              <p>{{ mod.name }}</p>
+            </a>
+            <form action="{% url 'remove-mod' mod.id mod.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Remove Mod</button>
+            </form>
+          </div>
+        {% endfor %} 
+      {% else %}
+        <p class="no-toys">{{car.make}} {{ car.model }} doesn't have any mods!</p>
+      {% endif %}
+    </div>
+
+
+    <h3>Available Mods</h3>
+    <div class="subsection-content">
+      {% if mods.count %} 
+        {% for mod in mods.all %}
+          <div class="toy-container">
+            <div class="color-block"></div>
+            <a href="{% url 'mod-detail' mod.id %}">
+              <p>{{ mod.name }}</p>
+            </a>
+            <form action="{% url 'associate-mod' car.id mod.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn submit">Add Mod</button>
+            </form>
+          </div>
+        {% endfor %} 
+      {% else %}
+        <p class="all-toys">{{car.make}} {{car.model}} already has all the available mods</p>
+      {% endif %}
+    </div>
+  </section>
 </div>
 {% endblock %}
