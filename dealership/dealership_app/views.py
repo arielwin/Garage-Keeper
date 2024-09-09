@@ -68,7 +68,20 @@ def signup(request):
 
 class CarCreate(LoginRequiredMixin, CreateView):
     model = Car
-    fields = '__all__'
+    fields = [
+        'year',
+        'make',
+        'model',
+        'price',
+        'trans',
+        'epa',
+        'drivetrain',
+        'engine',
+        'intColor',
+        'extColor',
+        'vin',
+        'description'
+    ]
     
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -76,7 +89,20 @@ class CarCreate(LoginRequiredMixin, CreateView):
 
 class CarUpdate(LoginRequiredMixin, UpdateView):
     model = Car
-    fields = '__all__'
+    fields = [
+        'year',
+        'make',
+        'model',
+        'price',
+        'trans',
+        'epa',
+        'drivetrain',
+        'engine',
+        'intColor',
+        'extColor',
+        'vin',
+        'description'
+    ]
 
 class CarDelete(LoginRequiredMixin, DeleteView):
     model = Car

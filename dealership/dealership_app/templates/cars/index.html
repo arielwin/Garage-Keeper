@@ -16,7 +16,7 @@
         <a href="{% url 'car-detail' car.id %}">
             <div class="card-content">
                 <div class="card-img-container">
-                    <img src="{% static 'images/sk8r-boi-cat.svg' %}" alt="{{ car.year }} {{ car.make }} {{car.model }}" />
+                    <img src="{% static 'images/wrench.jpg' %}" alt="{{ car.year }} {{ car.make }} {{car.model }}" />
                 </div>
                 <h2 class="card-title">{{ car.year }} {{ car.make }} {{car.model }}</h2>
                 <p><small>{{ car.description }}</small></p>
@@ -25,7 +25,8 @@
     </div>
     {% endfor %}
     {% else %}
-    <h4>No cars added yet.</h4>
+    <h2>No cars added yet.</h2>
+    <h2>Head over to the "Add a Car" menu to start tracking your car's maintenance!</h2>
     {% endif %}
 </section>
 

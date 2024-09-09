@@ -32,12 +32,15 @@ class Mod(models.Model):
         return reverse('mod-detail', kwargs={'pk':self.id})
     class Meta:
         ordering = ['name']
+
+
 class Car(models.Model):
-    TRANS_TYPES = {
-        "M": "Manual",
-        "A": "Automatic",
-        "C": "CVT"
-    }
+
+    TRANS_TYPES = [
+        ("M", "Manual"),
+        ("A", "Automatic"),
+        ("C", "CVT")
+    ]
     DRIVETRAIN = {
         '4' : 'Four Wheel Drive',
         'A' : "All Wheel Drive",

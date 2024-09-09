@@ -1,12 +1,13 @@
-.cat-container {
+.car-container {
     padding: 35px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
   }
   
-  .cat-img {
+  .car-img {
     width: 75%;
     max-width: 350px;
   }
@@ -16,7 +17,7 @@
     border-radius: var(--card-border-radius);
   }
   
-  .cat-details {
+  .car-details {
     width: 98%;
   }
   
