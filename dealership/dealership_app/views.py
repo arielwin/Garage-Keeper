@@ -110,7 +110,11 @@ class CarDelete(LoginRequiredMixin, DeleteView):
 
 class ModCreate(LoginRequiredMixin, CreateView):
     model = Mod
-    fields = '__all__'
+    fields = ['name', 'description']
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 class ModList(LoginRequiredMixin, ListView):
     model = Mod
@@ -125,4 +129,8 @@ class ModUpdate(LoginRequiredMixin, UpdateView):
 class ModDelete(LoginRequiredMixin, DeleteView):
     model = Mod
     success_url = '/mods/'
+
+    def test_func(self):
+        mod = self.get_object()
+        return self.request.user == mod.created_by
 

@@ -12,7 +12,9 @@
     <p>{{ mod.description }}</p>
   </div>
 </div>
+{% if user == mod.created_by %}
 <a href="{% url 'mod-update' mod.id %}" class="btn warn">Edit</a>
 <a href="{% url 'mod-delete' mod.id %}" class="btn danger">Delete</a>
+{% endif %}
 
 {% endblock %}
