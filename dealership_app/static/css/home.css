@@ -16,7 +16,9 @@ main>section {
 }
 
 .header-logo-container {
-  display: none;
+  margin: auto;
+  padding: 10px 20px 0;
+  max-width: 62px;
 }
 
 .logo-container {

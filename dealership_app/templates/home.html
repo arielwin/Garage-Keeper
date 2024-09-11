@@ -3,18 +3,19 @@
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock %}
+
 {% block content %}
 
+{% block body%}
+{% endblock%}
 
 {% if not user.is_authenticated %}
-<section></section>
+<section>
   <div class = "welcome">
     <h2>Welcome to Garage Keeper!</h2>
     <h2>It looks like you aren't logged in. </h2>
     <h2>Sign up or Login below</h2>
   </div>
-</section>
-<section>
   <form action="{% url 'home' %}" method="post" class="login">
     <h1>Login</h1>
     {% csrf_token %} {{ form.as_p }}
@@ -26,6 +27,7 @@
 {% else %}
 
 <section>
+
   <div class = "welcome">
     <h2>Welcome to Garage Keeper!</h2>
     <h2>It looks like you're already signed in!</h2>

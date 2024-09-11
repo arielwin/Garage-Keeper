@@ -23,7 +23,10 @@ To get started with an account [Click here!](https://garage-keeper-35371e4365bb.
     How to use the app:
         - Sign up and Log in!
         - Once logged in add a car
-        - From 'Your Garage' page, click on a car to see its spec as you have entered them, it's maintenance history and which mods have been added or are available.
+        - From 'Your Garage' page, click on a car to see:
+            - its specs as you have entered them 
+            - it's maintenance history 
+            - which mods have been added or are available.
         - You can also edit a cars specs or delete it from your inventory.
         - Additionally, on the 'Add a Mod' page you can add a mod to a website-wide list of mods
             - only you can edit or delete mods you've created, but anyone can add your mods to their mods list
@@ -34,8 +37,29 @@ To get started with an account [Click here!](https://garage-keeper-35371e4365bb.
 
 ## Attributions
 
+Images:
+ - [Link](https://www.svgrepo.com/svg/490621/car-suv)
+
+ - [Link](https://www.vecteezy.com/vector-art/21564767-single-wrench-in-pixel-art-style)
+
+ - [Link](https://globalautomotive.dk/toyota-corolla/)
 
 
 ## Tech Used For This Project
 
+- **Django**: Web framework used for building the backend.
+- **HTML/CSS**: Markup and styling for the frontend.
+- **JavaScript**: For interactive elements on the frontend.
+- **PostgreSQL**: Database used for storing data.
+- **Heroku**: Platform used for deploying the application.
+- **Bootstrap**: CSS framework for responsive design.
+- **Git**: Version control system.
+- **GitHub**: Repository hosting service.
+- **Gunicorn**: WSGI HTTP Server for running the Django application.
+- **Whitenoise**: For serving static files in production.
+- **Pillow**: Python Imaging Library for handling image uploads.
+- **Django REST Framework**: For building APIs.
+
 ## Future Updates
+
+User Profile Management, Imporved UI/UX, More complex form for detailed car descriptions, Develop mobile app companion, Notifications for upcoming maintenance
