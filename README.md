@@ -1,3 +1,5 @@
+![gg-homepage](https://github.com/user-attachments/assets/c4efba6d-74a3-477d-9e45-0a3b2ec4d1d3)
+
 # Garage Keeper
 
 Do you manage a fleet of vehicles and struggle to track all of your vehicle maintenance? Are you a car collector aiming to best maintain your investments? Do you just like cars and want to keep a list of your favorites?
