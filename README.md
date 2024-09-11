@@ -18,7 +18,7 @@ Once you've added a car to your garage, click on it to be directed to that vehic
 
 ## Getting Started
 
-To get started with an account (Click here!)[www.google.com]
+To get started with an account (Click here!)[https://garage-keeper-35371e4365bb.herokuapp.com/]
 
     How to use the app:
         - Sign up and Log in!
