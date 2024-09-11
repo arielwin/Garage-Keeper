@@ -2,12 +2,6 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-{% endblock %}
-
-{% block content %}
-
-{% block body%}
-{% endblock%}
 
 {% if not user.is_authenticated %}
 <section>
