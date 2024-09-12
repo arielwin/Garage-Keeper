@@ -1,8 +1,10 @@
+![gg-homepage](https://github.com/user-attachments/assets/c4efba6d-74a3-477d-9e45-0a3b2ec4d1d3)
+
 # Garage Keeper
 
 Do you manage a fleet of vehicles and struggle to track all of your vehicle maintenance? Are you a car collector aiming to best maintain your investments? Do you just like cars and want to keep a list of your favorites?
 
-Garage Keeper is for you!
+**Garage Keeper** is for you!
 
 Sign up and log in to start keeping detailed maintenance logs of your vehicles in an easy, point and click environment. 
 
@@ -10,9 +12,9 @@ Once you've added a car to your garage, simply select what maintenace has been c
 
 Gone are the days of trying to remember when you changed your oil last or if you've ever rotated your tires.
 
-Garage Keeper is the one-stop shop for your automotive maintenance tracking!
+**Garage Keeper** is the one-stop shop for your automotive maintenance tracking!
 
-PLUS: Do you add upgrades to your vehicles? You're in luck! Garage Keeper also boasts the ability to track which modifications you've made to EACH vehicle!
+PLUS: Do you add upgrades to your vehicles? You're in luck! **Garage Keeper** also boasts the ability to track which modifications you've made to EACH vehicle!
 
 Once you've added a car to your garage, click on it to be directed to that vehicles details! At the bottom you can simply add or remove mods you've added or removed from your vehicles! 
 
