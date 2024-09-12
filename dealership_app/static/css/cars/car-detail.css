@@ -21,11 +21,11 @@
     width: 98%;
   }
   
-  .cat-actions {
+  .car-actions {
     margin-top: 20px;
   }
   
-  .feedings-toy-container {
+  .maint-mods-container {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
@@ -95,7 +95,7 @@
     margin: 5px 0;
   }
   
-  .feedings-toy-container > section {
+  .maint-mods-container > section {
     width: 80%;
     min-width: 360px;
     border: var(--borders);
@@ -202,19 +202,19 @@
       margin-right: 25px;
     }
   
-    .feedings-toy-container {
+    .maint-mods-container {
       flex-direction: row;
       justify-content: space-around;
       align-items: flex-start;
     }
   
-    .feedings-toy-container > section {
+    .maint-mods-container > section {
       width: 45%;
     }
   }
   
   @media only screen and (min-width: 1024px) {
-    .feedings-toy-container {
+    .maint-mods-container {
       padding: 0 40px;
     }
   }

@@ -9,13 +9,15 @@
     <div class="car-img">
       <img src="" alt="{{ car.year }} {{car.make}} {{car.model}}" />
     </div>
-    <h2>Details about your {{ car.year }} {{ car.make}} {{car.model}} </h2>
-    <h2>This is a(n) {{ car.get_trans_display }} transmission vehicle mated to a(n) 
-      {{ car.get_drivetrain_display }} drivetrain powered by a {{ car.engine }}. The exterior color
-      is {{ car.extColor }} and the interior color is {{ car.intColor }}. Your most recent
-      gas milage was reported as {{ car.epa }} MPG.</h2>
-    <h3>Your short description: {{ car.description }}</h3>
-    </br>
+    <div class="car-container">
+      <h2>Details about your {{ car.year }} {{ car.make}} {{car.model}}: </h2>
+      <h2>This is a(n) {{ car.get_trans_display }} transmission vehicle mated to a(n) 
+        {{ car.get_drivetrain_display }} drivetrain powered by a {{ car.engine }}. The exterior color
+        is {{ car.extColor }} and the interior color is {{ car.intColor }}. Your most recent
+        gas milage was reported as {{ car.epa }} MPG.</h2>
+      <h3>Your short description: {{ car.description }}</h3>
+    </div >
+
 
     <div class="car-actions">
       <a href="{% url 'car-update' car.id %}" class="btn warn">Edit</a>
@@ -25,7 +27,7 @@
   </div>
 </section>
 
-<div class="feedings-toy-container">
+<div class="maint-mods-container">
   <section class="feedings">
     <div class="subsection-title">
       <h2>Maintenance History</h2>
